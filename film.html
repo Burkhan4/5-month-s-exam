@@ -39,7 +39,9 @@
               >
             </ul>
           </div>
-          <div class="flex items-center justify-between gap-[19px] px-[58px] pl-[60px]">
+          <div
+            class="flex items-center justify-between gap-[19px] px-[58px] pl-[60px]"
+          >
             <div
               class="flex bg-[#232229] w-[320px] h-[48px] gap-[8px] rounded-[13px] items-center pl-[12px] mr-[100px]"
             >
@@ -77,7 +79,11 @@
           id="film-mob"
         >
           <img class="w-[96px] h-[51px]" src="./public/svg/logo.svg" alt="" />
-          <img class="w-[39px] h-[30px]" src="./public/svg/mobile-nav-sections.svg" alt="" />
+          <img
+            class="w-[39px] h-[30px]"
+            src="./public/svg/mobile-nav-sections.svg"
+            alt=""
+          />
         </div>
       </nav>
     </header>
@@ -117,9 +123,7 @@
           <h1 class="text-[36px] font-bold mb-[19px] mt-[23px]" id="mob-h1">
             Inception
           </h1>
-          <p
-            class="text-[#A7A7A7] text-[24px] font-medium mb-[22px]"
-          >
+          <p class="text-[#A7A7A7] text-[24px] font-medium mb-[22px]">
             Sci-Fi Thriller <span id="mob-p-1"> 2010</span> | Channel 34
           </p>
           <p
@@ -376,6 +380,102 @@
         </div>
       </div>
     </footer>
-    <script src="/src/film.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = urlParams.get("id");
+
+        if (!movieId) {
+          if (document.getElementById("desktop-h1")) {
+            document.getElementById("desktop-h1").textContent =
+              "Film topilmadi";
+          }
+          if (document.getElementById("desktop-p-2")) {
+            document.getElementById("desktop-p-2").textContent =
+              "ID parametri yo'q. Iltimos, ro'yxatdan tanlang.";
+          }
+          return;
+        }
+
+        const mobH1 = document.getElementById("mob-h1");
+        const mobP1 = document.getElementById("mob-p-1");
+        const mobP2 = document.getElementById("mob-p-2");
+        const mobBg = document.getElementById("mob-bg");
+
+        const apiUrl = `https://api.imdbapi.dev/titles/${movieId}`;
+
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `API xatosi: ${response.status} - Film topilmadi`,
+              );
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (document.getElementById("desktop-h1")) {
+              document.getElementById("desktop-h1").textContent =
+                data.originalTitle || data.primaryTitle || "Noma'lum sarlavha";
+            }
+
+            if (document.getElementById("desktop-p-1")) {
+              document.getElementById("desktop-p-1").textContent =
+                ` ${data.startYear || "N/A"}`;
+            }
+
+            if (document.getElementById("desktop-p-2")) {
+              document.getElementById("desktop-p-2").textContent =
+                data.plot || "Syujet mavjud emas.";
+            }
+
+            const desktopSection = document.getElementById("desktop-section");
+            if (desktopSection && data.primaryImage?.url) {
+              desktopSection.style.backgroundImage = `url('${data.primaryImage.url}')`;
+              desktopSection.style.backgroundRepeat = "repeat-x";
+              desktopSection.style.backgroundSize = "auto 100%";
+              desktopSection.style.backgroundPosition = "center top";
+            }
+
+            if (mobH1) {
+              mobH1.textContent =
+                data.originalTitle || data.primaryTitle || "Noma'lum";
+            }
+
+            if (mobP1) {
+              mobP1.textContent = ` ${data.startYear || "N/A"}`;
+            }
+
+            if (mobP2) {
+              mobP2.textContent = data.plot || "Syujet mavjud emas.";
+            }
+
+            if (mobBg && data.primaryImage?.url) {
+              mobBg.style.backgroundImage = `url('${data.primaryImage.url}')`;
+              mobBg.style.backgroundRepeat = "repeat-x";
+              mobBg.style.backgroundSize = "auto 100%";
+              mobBg.style.backgroundPosition = "center top";
+            }
+
+            document.title =
+              (data.originalTitle || data.primaryTitle || "Film") + " | onAir";
+          })
+          .catch((err) => {
+            console.error("Film yuklashda xato:", err);
+
+            if (document.getElementById("desktop-h1")) {
+              document.getElementById("desktop-h1").textContent =
+                "Xato yuz berdi";
+            }
+            if (document.getElementById("desktop-p-2")) {
+              document.getElementById("desktop-p-2").textContent =
+                "Film ma'lumotlari yuklanmadi. Internet aloqasini tekshiring.";
+            }
+
+            if (mobH1) mobH1.textContent = "Xato";
+            if (mobP2) mobP2.textContent = "Ma'lumot yuklanmadi.";
+          });
+      });
+    </script>
   </body>
 </html>

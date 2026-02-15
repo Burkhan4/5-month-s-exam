@@ -8,7 +8,6 @@
   </head>
   <body>
     <header>
-      <a href="./film.html">film</a>
       <nav
         class="max-w-[1920px] m-auto pt-[30px] pb-[40px] pl-[70px] pr-[57.5px] hidden desktop:flex flex-col"
       >
@@ -324,7 +323,11 @@
             </p>
           </div>
           <div>
-            <img class="cursor-pointer" src="./public/svg/mobile-footer-plus.svg" alt="">
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
           </div>
         </div>
         <hr class="borde-[1px] border-[#262626] mb-[12px]" />
@@ -337,7 +340,11 @@
             </p>
           </div>
           <div>
-            <img class="cursor-pointer" src="./public/svg/mobile-footer-plus.svg" alt="">
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
           </div>
         </div>
         <hr class="borde-[1px] border-[#262626] mb-[12px]" />
@@ -350,7 +357,11 @@
             </p>
           </div>
           <div>
-            <img class="cursor-pointer" src="./public/svg/mobile-footer-plus.svg" alt="">
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
           </div>
         </div>
         <hr class="borde-[1px] border-[#262626] mb-[12px]" />
@@ -363,29 +374,196 @@
             </p>
           </div>
           <div>
-            <img class="cursor-pointer" src="./public/svg/mobile-footer-plus.svg" alt="">
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
           </div>
         </div>
         <hr class="borde-[1px] border-[#262626] mb-[12px]" />
         <div class="pt-[58px] pb-[43px] pl-[95px]">
-          <img class="w-[170.47px] h-[91px]" src="./public/svg/footer-logo.svg" alt="">
+          <img
+            class="w-[170.47px] h-[91px]"
+            src="./public/svg/footer-logo.svg"
+            alt=""
+          />
         </div>
         <div class="pl-[40px] mb-[30px]">
-          <p class="text-center text-[16px] text-[#8D8D8D]">Hot Africa, we offer original, exclusive <br>and premium stories. Everything you <br>want to watch, anytime, anywhere and <br>as much.</p>
+          <p class="text-center text-[16px] text-[#8D8D8D]">
+            Hot Africa, we offer original, exclusive <br />and premium stories.
+            Everything you <br />want to watch, anytime, anywhere and <br />as
+            much.
+          </p>
         </div>
-        <div class="pl-[40px] mb-[30px]"><img src="./public/svg/play-market-and-app-store.svg" alt=""></div>
+        <div class="pl-[40px] mb-[30px]">
+          <img src="./public/svg/play-market-and-app-store.svg" alt="" />
+        </div>
         <div class="px-[20px] flex gap-[52px] mb-[30px]">
-          <img src="./public/svg/facebook.svg" alt="">
-          <img src="./public/svg/instagramm.svg" alt="">
-          <img src="./public/svg/twitter.svg" alt="">
-          <img src="./public/svg/youtube.svg" alt="">
+          <img src="./public/svg/facebook.svg" alt="" />
+          <img src="./public/svg/instagramm.svg" alt="" />
+          <img src="./public/svg/twitter.svg" alt="" />
+          <img src="./public/svg/youtube.svg" alt="" />
         </div>
         <div class="pl-[23px]">
-          <p class="text-[#616161] text-[16px] font-normal mb-[16px]">Terms of use <span class="ml-[20px]">Privacy Policy</span> <span class="ml-[20px]">SiteMap</span></p>
-          <p class="text-[#616161] text-[16px] font-normal">Copyright © 2022 Hot Africa. <br>All rights reserved.</p>
+          <p class="text-[#616161] text-[16px] font-normal mb-[16px]">
+            Terms of use <span class="ml-[20px]">Privacy Policy</span>
+            <span class="ml-[20px]">SiteMap</span>
+          </p>
+          <p class="text-[#616161] text-[16px] font-normal">
+            Copyright © 2022 Hot Africa. <br />All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-    <script src="/index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuButton = document.getElementById("nav-sections");
+        const menuContainer = document.querySelector(".nav-sections");
+
+        if (!menuButton || !menuContainer) return;
+
+        menuButton.addEventListener("click", () => {
+          menuContainer.classList.toggle("hidden");
+
+          const img = menuButton.querySelector("img");
+          if (img) {
+            if (menuContainer.classList.contains("hidden")) {
+              img.src = "./public/svg/mobile-nav-sections.svg";
+              img.alt = "sections";
+            } else {
+              img.src = "./public/img/x.png";
+              img.alt = "close";
+            }
+          }
+        });
+
+        document.addEventListener("click", (e) => {
+          if (
+            !menuContainer.contains(e.target) &&
+            !menuButton.contains(e.target)
+          ) {
+            if (!menuContainer.classList.contains("hidden")) {
+              menuContainer.classList.add("hidden");
+              const img = menuButton.querySelector("img");
+              if (img) {
+                img.src = "./public/svg/mobile-nav-sections.svg";
+                img.alt = "sections";
+              }
+            }
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const movieGrid = document.querySelector(".movie-grid");
+
+        if (movieGrid) {
+          fetch("https://api.imdbapi.dev/titles")
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  "API javobi muvaffaqiyatsiz: " + response.status,
+                );
+              }
+              return response.json();
+            })
+            .then((data) => {
+              if (data.titles && Array.isArray(data.titles)) {
+                const titlesWithPoster = data.titles
+                  .filter(
+                    (title) => title.primaryImage && title.primaryImage.url,
+                  )
+                  .slice(0, 21);
+
+                titlesWithPoster.forEach((title) => {
+                  const posterUrl = title.primaryImage.url;
+                  const imdbId = title.id;
+
+                  const img = document.createElement("img");
+                  img.src = posterUrl;
+                  img.alt = title.primaryTitle || "Movie poster";
+                  img.loading = "lazy";
+
+                  img.addEventListener("click", () => {
+                    window.location.href = `film.html?id=${imdbId}`;
+                  });
+
+                  movieGrid.appendChild(img);
+                });
+
+                if (titlesWithPoster.length < 21) {
+                  for (let i = titlesWithPoster.length; i < 21; i++) {
+                    const placeholder = document.createElement("div");
+                    placeholder.style.width = "231px";
+                    placeholder.style.height = "347.82px";
+                    placeholder.style.background = "#1a1a1a";
+                    placeholder.style.borderRadius = "12px";
+                    movieGrid.appendChild(placeholder);
+                  }
+                }
+              } else {
+                console.warn("titles array topilmadi yoki bo'sh");
+              }
+            })
+            .catch((error) => {
+              console.error("API xatosi:", error);
+              movieGrid.innerHTML =
+                '<p class="col-span-7 text-center text-red-500">Kinolar yuklanmadi. Internetni tekshiring.</p>';
+            });
+        }
+      });
+
+      const mobileMovieGrid = document.querySelector(".mobile-movie-grid");
+
+      if (mobileMovieGrid) {
+        fetch("https://api.imdbapi.dev/titles")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("API xatosi: " + response.status);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data.titles && Array.isArray(data.titles)) {
+              const titlesWithPoster = data.titles
+                .filter((title) => title.primaryImage && title.primaryImage.url)
+                .slice(0, 30);
+
+              titlesWithPoster.forEach((title) => {
+                const posterUrl = title.primaryImage.url;
+                const imdbId = title.id;
+
+                const img = document.createElement("img");
+                img.src = posterUrl;
+                img.alt = title.primaryTitle || "Movie poster";
+                img.loading = "lazy";
+
+                img.addEventListener("click", () => {
+                  window.location.href = `film.html?id=${imdbId}`;
+                });
+
+                mobileMovieGrid.appendChild(img);
+              });
+
+              if (titlesWithPoster.length < 30) {
+                for (let i = titlesWithPoster.length; i < 30; i++) {
+                  const placeholder = document.createElement("div");
+                  placeholder.style.width = "111px";
+                  placeholder.style.height = "155px";
+                  placeholder.style.background = "#1a1a1a";
+                  placeholder.style.borderRadius = "8px";
+                  mobileMovieGrid.appendChild(placeholder);
+                }
+              }
+            }
+          })
+          .catch((error) => {
+            console.error("Mobil API xatosi:", error);
+            mobileMovieGrid.innerHTML =
+              '<p class="col-span-3 py-4 text-center text-red-500">Ma\'lumotlar yuklanmadi</p>';
+          });
+      }
+    </script>
   </body>
 </html>
