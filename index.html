@@ -423,18 +423,20 @@
 
         if (!menuButton || !menuContainer) return;
 
-        menuButton.addEventListener("click", () => {
+        menuButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+
           menuContainer.classList.toggle("hidden");
 
           const img = menuButton.querySelector("img");
-          if (img) {
-            if (menuContainer.classList.contains("hidden")) {
-              img.src = "/public/svg/mobile-nav-sections.svg";
-              img.alt = "sections";
-            } else {
-              img.src = "/public/img/x.png";
-              img.alt = "close";
-            }
+          if (!img) return;
+
+          if (menuContainer.classList.contains("hidden")) {
+            img.src = "/svg/mobile-nav-sections.svg";
+            img.alt = "sections";
+          } else {
+            img.src = "/img/x.png";
+            img.alt = "close";
           }
         });
 
@@ -445,9 +447,10 @@
           ) {
             if (!menuContainer.classList.contains("hidden")) {
               menuContainer.classList.add("hidden");
+
               const img = menuButton.querySelector("img");
               if (img) {
-                img.src = "/public/svg/mobile-nav-sections.svg";
+                img.src = "/svg/mobile-nav-sections.svg";
                 img.alt = "sections";
               }
             }
