@@ -9,5 +9,14 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
+  },
+
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        film: 'film.html'
+      }
+    }
   }
 })
