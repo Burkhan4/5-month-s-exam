@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #191919;
+  color: #ffffff;
+}
+
+#desktop-section {
+  min-height: 848px;
+  background-position: center top;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  padding-bottom: 0;
+}
+
+#desktop-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  pointer-events: none;
+  top: 100px;
+}
+
+#desktop-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+#mob-bg {
+  width: 360px;
+  height: 151px;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: center top;
+  position: relative;
+  overflow: hidden;
+}
+
+#mob-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+#mob-bg + .text-center {
+  position: relative;
+  z-index: 2;
+}

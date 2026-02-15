@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.nav-sections {
+    background-color: #000000de;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 650px;
+    width: 360px;
+}
+
+.movie-grid img {
+  width: 231px;
+  height: 347.82px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+.movie-grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+
+.mobile-movie-grid img {
+  width: 111px;
+  height: 155px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.mobile-movie-grid img:hover {
+  transform: scale(1.06);
+}
+
+#mob-bg {
+  width: 360px;
+  height: 151px;
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center top;
+  overflow: hidden;
+  position: relative;
+}
+
+#mob-bg > div {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+#mob-bg + .text-center {
+  position: relative;
+  z-index: 2;
+}
+
+#mob-h1, #mob-p-1, #mob-p-2 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}

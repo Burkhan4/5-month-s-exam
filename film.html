@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/film.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="flex-col hidden desktop:flex">
+        <div
+          class="max-w-[1920px] w-full m-auto pt-[30px] flex items-center justify-between"
+        >
+          <div class="flex gap-[19px] items-center">
+            <img src="/svg/logo.svg" alt="logo" />
+            <ul
+              class="flex items-center text-[#FFFFFF] text-[24px] font-medium"
+            >
+              <a
+                href="#"
+                class="mr-[96px] transition-all duration-300 ease-out hover:-translate-y-1 hover:text-[#E13C52]"
+                ><li>Movies</li></a
+              >
+              <a
+                href="#"
+                class="mr-[96px] transition-all duration-300 ease-out hover:-translate-y-1 hover:text-[#E13C52]"
+                ><li>Series</li></a
+              >
+              <a
+                href="#"
+                class="mr-[96px] transition-all duration-300 ease-out hover:-translate-y-1 hover:text-[#E13C52]"
+                ><li>Channels</li></a
+              >
+              <a
+                href="#"
+                class="transition-all duration-300 ease-out hover:-translate-y-1 hover:text-[#E13C52]"
+                ><li>Music</li></a
+              >
+            </ul>
+          </div>
+          <div class="flex items-center justify-between gap-[19px] px-[58px] pl-[60px]">
+            <div
+              class="flex bg-[#232229] w-[320px] h-[48px] gap-[8px] rounded-[13px] items-center pl-[12px] mr-[100px]"
+            >
+              <img
+                class="w-[24px] cursor-pointer"
+                src="/svg/search-icon-desktop.svg"
+                alt=""
+              />
+              <input
+                class="bg-[#232229] h-[28px] w-[250px]"
+                type="text"
+                name=""
+                id=""
+                placeholder="Search"
+              />
+            </div>
+            <div class="flex gap-[8px] cursor-pointer">
+              <img
+                src="/svg/desktop-sing-in.svg"
+                class="pt-[4px]"
+                alt="search"
+              />
+              <p
+                class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+              >
+                Profile
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="bg-black desktop:hidden">
+        <div
+          class="w-[360px] h-[80px] flex gap-[207px] m-auto pt-[13px]"
+          id="film-mob"
+        >
+          <img class="w-[96px] h-[51px]" src="./public/svg/logo.svg" alt="" />
+          <img class="w-[39px] h-[30px]" src="./public/svg/mobile-nav-sections.svg" alt="" />
+        </div>
+      </nav>
+    </header>
+    <section class="flex-col hidden desktop:flex">
+      <div
+        id="desktop-section"
+        class="max-w-[1920px] w-full min-h-[848px] m-auto pt-[200px] pl-[60px] mt-[21px]"
+      >
+        <h1 class="text-[96px] font-light mb-[20px]" id="desktop-h1">
+          Inception
+        </h1>
+        <p
+          class="text-[#A7A7A7] text-[24px] font-medium mb-[22px]"
+          id="desktop-p"
+        >
+          Sci-Fi Thriller <span id="desktop-p-1"> 2010</span> | Channel 34
+        </p>
+        <p
+          class="text-[32px] font-light pb-[55px] max-w-[607px] h-[170px]"
+          id="desktop-p-2"
+        >
+          Cobb steals information from his targets by entering their dreams.
+          Saito offers to wipe clean Cobb's criminal history as payment for
+          performing an inception on his sick competitor's son.
+        </p>
+        <button
+          class="w-[238px] h-[48px] rounded-[60px] bg-[#E13C52] text-[24px] duration-300 hover:bg-[#f40525] mt-[150px]"
+        >
+          Watch Now
+        </button>
+      </div>
+    </section>
+    <section class="bg-black desktop:hidden">
+      <div class="max-w-[360px] w-full m-auto">
+        <div class="w-[360px] h-[151px]" id="mob-bg"></div>
+        <div class="text-center">
+          <h1 class="text-[36px] font-bold mb-[19px] mt-[23px]" id="mob-h1">
+            Inception
+          </h1>
+          <p
+            class="text-[#A7A7A7] text-[24px] font-medium mb-[22px]"
+          >
+            Sci-Fi Thriller <span id="mob-p-1"> 2010</span> | Channel 34
+          </p>
+          <p
+            class="text-[13px] font-light mb-[64px] max-w-[289px] h-[36px] ml-[41px]"
+            id="mob-p-2"
+          >
+            Cobb steals information from his targets by entering their dreams.
+            Saito offers to wipe clean Cobb's criminal history as payment for
+            performing an inception on his sick competitor's son.
+          </p>
+          <button
+            class="w-[122px] h-[48px] rounded-[60px] bg-[#E13C52] text-[14px] duration-300 hover:bg-[#f40525] mb-[70px]"
+          >
+            Watch Now
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-[#191919] flex-col desktop:flex hidden">
+      <div
+        class="max-w-[1920px] w-full m-auto flex gap-[387px] items-start pt-[61px] pl-[70px] pb-[49px]"
+      >
+        <div class="pt-[16px] max-w-[350px] w-full">
+          <img src="./public/svg/footer-logo.svg" alt="logo" />
+          <p
+            class="mt-[102px] mb-[39px] text-[#8D8D8D] text-[16px] font-normal"
+          >
+            Hot Africa, we offer original, exclusive <br />and premium stories.
+            Everything you <br />want to watch, anytime, anywhere and <br />as
+            much.
+          </p>
+          <img
+            class="cursor-pointer mb-[34px]"
+            src="./public/svg/play-market-and-app-store.svg"
+            alt=""
+          />
+          <div class="flex gap-[40px] items-center mb-[57px]">
+            <img
+              class="cursor-pointer"
+              src="./public/svg/facebook.svg"
+              alt=""
+            />
+            <img
+              class="cursor-pointer"
+              src="./public/svg/instagramm.svg"
+              alt=""
+            />
+            <img class="cursor-pointer" src="./public/svg/twitter.svg" alt="" />
+            <img class="cursor-pointer" src="./public/svg/youtube.svg" alt="" />
+          </div>
+          <div>
+            <p class="text-[#616161] text-[16px] font-medium mb-[15px]">
+              Terms of use Privacy Policy SiteMap
+            </p>
+            <p class="text-[#616161] text-[16px] font-medium">
+              Copyright © 2022 Hot Africa. All rights reserved.
+            </p>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="mr-[190px]">
+            <div class="flex gap-[8px] cursor-pointer mb-[24px]">
+              <img
+                src="./public/svg/desktop-sing-in.svg"
+                class="pt-[4px]"
+                alt="search"
+              />
+              <p
+                class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+              >
+                Sign in
+              </p>
+            </div>
+            <div class="flex flex-col gap-[25px]">
+              <a href="" class="text-[#797979] text-[18px] font-normal"
+                >Personal data</a
+              >
+              <a href="" class="text-[#797979] text-[18px] font-normal"
+                >Choosing a Plan</a
+              >
+              <a href="" class="text-[#797979] text-[18px] font-normal"
+                >Payment</a
+              >
+            </div>
+          </div>
+          <div class="flex flex-col gap-[21px] mr-[157px]">
+            <a
+              href=""
+              class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+              >Movies</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Lock Upp</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Pavitra Rishta</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal">Girgit</a>
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Hai Taubba Season 3</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal">Cartel</a>
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Crimes And Confessions</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Puncch Beat Season 2</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Broken But Beautiful Season 3</a
+            >
+          </div>
+          <div class="flex flex-col gap-[21px]">
+            <a
+              href=""
+              class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+              >Series</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >X.X.X. Season 2</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Gandii Baat Season 5</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Gandii Baat Season 6</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Broken But Beautiful Season 1</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Broken But Beautiful Season 2</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Class Of 2020</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Bekaaboo Season 1</a
+            >
+            <a href="" class="text-[#797979] text-[18px] font-normal"
+              >Ragini MMS Returns Season 2</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <footer class="desktop:hidden bg-[#191919] h-[950px]">
+      <div class="max-w-[360px] m-auto py-[54px] px-[20px]">
+        <hr class="borde-[1px] border-[#262626] mb-[12px]" />
+        <div class="flex items-center justify-between">
+          <div class="flex gap-[8px] cursor-pointer mb-[12px]">
+            <img
+              src="./public/svg/desktop-sing-in.svg"
+              class="pt-[4px]"
+              alt="search"
+            />
+            <p
+              class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+            >
+              Sign in
+            </p>
+          </div>
+          <div>
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <hr class="borde-[1px] border-[#262626] mb-[12px]" />
+        <div class="flex items-center justify-between">
+          <div class="cursor-pointer mb-[12px]">
+            <p
+              class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+            >
+              Company
+            </p>
+          </div>
+          <div>
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <hr class="borde-[1px] border-[#262626] mb-[12px]" />
+        <div class="flex items-center justify-between">
+          <div class="cursor-pointer mb-[12px]">
+            <p
+              class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+            >
+              Movies
+            </p>
+          </div>
+          <div>
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <hr class="borde-[1px] border-[#262626] mb-[12px]" />
+        <div class="flex items-center justify-between">
+          <div class="cursor-pointer mb-[12px]">
+            <p
+              class="text-[#FFFFFF] text-[24px] font-semibold duration-300 hover:text-[#E13C52]"
+            >
+              Series
+            </p>
+          </div>
+          <div>
+            <img
+              class="cursor-pointer"
+              src="./public/svg/mobile-footer-plus.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <hr class="borde-[1px] border-[#262626] mb-[12px]" />
+        <div class="pt-[58px] pb-[43px] pl-[95px]">
+          <img
+            class="w-[170.47px] h-[91px]"
+            src="./public/svg/footer-logo.svg"
+            alt=""
+          />
+        </div>
+        <div class="pl-[40px] mb-[30px]">
+          <p class="text-center text-[16px] text-[#8D8D8D]">
+            Hot Africa, we offer original, exclusive <br />and premium stories.
+            Everything you <br />want to watch, anytime, anywhere and <br />as
+            much.
+          </p>
+        </div>
+        <div class="pl-[40px] mb-[30px]">
+          <img src="./public/svg/play-market-and-app-store.svg" alt="" />
+        </div>
+        <div class="px-[20px] flex gap-[52px] mb-[30px]">
+          <img src="./public/svg/facebook.svg" alt="" />
+          <img src="./public/svg/instagramm.svg" alt="" />
+          <img src="./public/svg/twitter.svg" alt="" />
+          <img src="./public/svg/youtube.svg" alt="" />
+        </div>
+        <div class="pl-[23px]">
+          <p class="text-[#616161] text-[16px] font-normal mb-[16px]">
+            Terms of use <span class="ml-[20px]">Privacy Policy</span>
+            <span class="ml-[20px]">SiteMap</span>
+          </p>
+          <p class="text-[#616161] text-[16px] font-normal">
+            Copyright © 2022 Hot Africa. <br />All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="/src/film.js"></script>
+  </body>
+</html>
